@@ -9,6 +9,10 @@ export const connection = async () => {
 
   await newClient.connect()
 
+  const rows = await newClient.query('SELECT * FROM game;')
+  console.log(rows.rows)
+
+
   return newClient
 }
 

@@ -9,14 +9,12 @@ export class MovieController {
   @Get()
   async getAll(@Res() res: Response) {
     const data = await new ModelSql().getAllMovies()
-
     return res.json(data)
   }
 
   @Post('create')
   async create(@Req() req: Request, @Res() res: Response) {
     const { title, genre, release } = req.body
-    console.log(req.body)
 
     if (
       typeof title !== 'string' ||
